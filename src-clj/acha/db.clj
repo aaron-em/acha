@@ -95,7 +95,7 @@
   { :db/id       (:id repo)
     :repo/url    (:url repo)
     :repo/status (keyword (:state repo))
-    :repo/reason (:reason repo) })
+    :repo/reason (or (:reason repo) "") })
 
 (defn get-repo-list []
   (query (db-conn) "SELECT r.* FROM repo r"))
